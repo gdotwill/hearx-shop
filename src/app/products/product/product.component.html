@@ -1,0 +1,28 @@
+<div class="card-container">
+  <div class="card">
+    <div class="p-1">
+      <img [src]="product.image" style="width: 100%">
+    </div>
+    <div class="product-info">
+      <p>{{product.name}}</p>
+    </div>
+    <div class="price">
+      <h2> R {{product.price}} </h2>
+    </div>
+    <div class="button-container">
+      <button class="btn btn-primary buy-buttom" [hidden]="buyButton" (click)="add.emit(product); toggleDisplay()">Buy</button>
+    </div>
+    <div *ngIf="showLoader" class="button-container">
+      <button class="btn btn-primary buy-buttom">Loading ...</button>
+    </div>
+    <div class="row adjustment-container" [hidden]="adjustmentButton">
+      <button class="btn btn-success" (click)="add.emit(product);">  +  </button>
+      <div class="text-center cart-total">
+        <app-cart></app-cart>
+      </div>
+      <button class="btn btn-danger" (click)="subtract.emit(product); showBuyButton()"> - </button>
+    </div>
+    <br>
+  </div>
+</div>
+

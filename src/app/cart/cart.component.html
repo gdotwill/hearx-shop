@@ -1,0 +1,8 @@
+<section>
+  <ng-container *ngIf="items$ | async as items">
+    <h4 class="total" *ngIf="!items.length"> 0 </h4>
+    <h4 *ngIf="items.length" class="flex align-center">
+      R {{total$ | async }}
+    </h4>
+  </ng-container>
+</section>

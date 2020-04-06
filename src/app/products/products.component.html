@@ -1,0 +1,21 @@
+<section class="padding">
+  <div class="container filter-container">
+    <div class="row text-center">
+      <div class="input-field col-md-12">
+        <label>Sort by:</label><select class="ml-2" [formControl]="sortControl">
+          <option value="id">Default:</option>
+          <option value="name">Name (ASC)</option>
+          <option value="price">Price (ASC)</option>
+        </select>
+      </div>
+    </div>
+    <br>
+  </div>
+  <div class="mt flex">
+    <app-product *ngFor="let product of (products$ | async)"
+                  (add)="addProductToCart($event)"
+                  (subtract)="subtract($event)"
+                  [product]="product">
+    </app-product>
+  </div>
+</section>
